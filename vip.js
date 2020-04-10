@@ -1,5 +1,6 @@
 // Sample Array for program
 let array = [1, 1, 2, 4, 4, 5, 5, 5, 6, 7, 9]
+let ar = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9]
 
 
 function findTens(array) {
@@ -10,7 +11,7 @@ function findTens(array) {
     let solutionThree = []
     
     //builds initial solution that is used for solutions two and three
-    //loops through each number in array, and sums them with each other number in the array, pushes each pair that equals 10 to the slutionOne array
+    //loops through each number in array, and sums them with each other number in the array, pushes each pair that equals 10 to the solutionOne array
     for (let i = 0; i < array.length; i++) {
         for (let n = 0; n < array.length; n++) {
             if (i !== n) {
@@ -22,7 +23,7 @@ function findTens(array) {
     //logs solution one
     console.log('Solution One:', solutionOne.join(' | '))
 
-    //maps the pair arrays into stings that can be quickly compaired with the rest of the pairs
+    //maps the pair arrays into stings that can be quickly compared with the rest of the pairs
     //pushes the strings into the solution two array if they are unique
     solutionOne.map((ar)=>JSON.stringify(ar)).forEach((string)=>{!solutionTwo.includes(string) ? solutionTwo.push(string) : null});
     
@@ -43,4 +44,4 @@ function findTens(array) {
 }
 
 //calls the function
-findTens(array)
+findTens(ar)
