@@ -1,22 +1,28 @@
 // Sample Array for program
 let array = [1, 1, 2, 4, 4, 5, 5, 5, 6, 7, 9]
-let ar = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9]
 
 
-function findTens(array) {
+function findTens(array, sum) {
 
     //initial empty solution arrays to be built
     let solutionOne = []
     let solutionTwo = []
     let solutionThree = []
-    
-    //builds initial solution that is used for solutions two and three
-    //loops through each number in array, and sums them with each other number in the array, pushes each pair that equals 10 to the solutionOne array
-    for (let i = 0; i < array.length; i++) {
-        for (let n = 0; n < array.length; n++) {
-            if (i !== n) {
-                array[i] + array[n] === 10 ? solutionOne.push([array[i], array[n]]) : null
-            }
+
+    array.sort()
+
+    let leftSide = 0;
+    let rightSide = array.length-1
+
+    while (leftSide < rightSide) {
+        if (array[leftSide] + array[rightSide] === sum) {
+            solutionOne.push([array[leftSide], array[rightSide]], [array[rightSide], array[leftSide]])
+        } 
+        
+        if (array[leftSide] + array[rightSide] < sum) {
+            leftSide++
+        } else {
+            rightSide--
         }
     }
     
@@ -44,4 +50,4 @@ function findTens(array) {
 }
 
 //calls the function
-findTens(ar)
+findTens(array, 10)
